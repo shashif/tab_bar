@@ -35,19 +35,43 @@ class HomePage extends StatelessWidget {
             actions: [
               PopupMenuButton(
                   onSelected: (value) {
-                    if (value == 'call') {}
+                    if (value == 'call') {
+                      print('Call');
+                    }
 
-                    if (value == 'message') {}
+                    if (value == 'message') {
+                      print('Message');
+                    }
                   },
                   offset: Offset(30.0, 40.0),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15.0))),
                   itemBuilder: (BuildContext context) {
                     return [
                       PopupMenuItem(
-                        child: Text('CAll'),
+                        child: Container(
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(
+                              width: 2,
+                              color: Colors.teal,
+                            ))),
+                            child: Text('CAll')),
                         value: 'call',
                       ),
                       PopupMenuItem(
                         child: Text('Message'),
+                        value: 'message',
+                      ),
+                      PopupMenuItem(
+                        child: Container(
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(
+                                      width: 2,
+                                      color: Colors.teal,
+                                    ))),
+                            child: Text('Message')),
                         value: 'message',
                       ),
                     ];
