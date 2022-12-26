@@ -8,6 +8,7 @@ void main() {
   runApp(const MaterialApp(
     title: "This is tab bar",
     home: HomePage(),
+    debugShowCheckedModeBanner: false,
   ));
 }
 
@@ -31,6 +32,27 @@ class HomePage extends StatelessWidget {
                 )
               ],
             ),
+            actions: [
+              PopupMenuButton(
+                  onSelected: (value) {
+                    if (value == 'call') {}
+
+                    if (value == 'message') {}
+                  },
+                  offset: Offset(30.0, 40.0),
+                  itemBuilder: (BuildContext context) {
+                    return [
+                      PopupMenuItem(
+                        child: Text('CAll'),
+                        value: 'call',
+                      ),
+                      PopupMenuItem(
+                        child: Text('Message'),
+                        value: 'message',
+                      ),
+                    ];
+                  })
+            ],
           ),
           body: const TabBarView(
             children: [
