@@ -7,7 +7,24 @@ class one extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Message"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text("Message"),
+            ElevatedButton(
+                onPressed: () {
+                  final snackBar = SnackBar(
+                    content: Text('This is SnackBar'),
+                    backgroundColor: Colors.teal,
+                    action: SnackBarAction(label: 'yes', onPressed: () {}),
+
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+                child: Text('SnackBar Menu')),
+          ],
+        ),
       ),
     );
   }
