@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class one extends StatelessWidget {
@@ -17,7 +19,9 @@ class one extends StatelessWidget {
                   final snackBar = SnackBar(
                     content: Text('This is SnackBar'),
                     backgroundColor: Colors.teal,
-                    action: SnackBarAction(label: 'yes', onPressed: () {}),
+                    action: SnackBarAction(label: 'Close', onPressed: () {
+                      SocketException.closed();
+                    }),
 
                   );
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
