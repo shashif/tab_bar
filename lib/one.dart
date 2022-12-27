@@ -19,7 +19,10 @@ class one extends StatelessWidget {
                   final snackBar = SnackBar(
                     content: Text('This is SnackBar'),
                     backgroundColor: Colors.teal,
-                    action: SnackBarAction(label: 'Close', onPressed: () {
+                    action: SnackBarAction(
+                        label: 'Close',
+                        textColor: Colors.white,
+                        onPressed: () {
                       SocketException.closed();
                     }),
 
