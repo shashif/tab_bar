@@ -79,6 +79,7 @@ class _oneState extends State<one> {
                   //for snack bar end
                 },
                   value:dropDownItemValue ,
+                underline: Container(),
                   items: [
                     DropdownMenuItem(
                       child: Text('Menu 1'),
