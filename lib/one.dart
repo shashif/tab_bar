@@ -64,6 +64,19 @@ class _oneState extends State<one> {
 
                   });
                   print(dropDownItemValue);
+                  //for snack bar start
+                  final snackBar = SnackBar(
+                    content: Text('You have selected Menu ${dropDownItemValue + 1}'),
+                    backgroundColor: Colors.teal,
+                    action: SnackBarAction(
+                        label: 'Close',
+                        textColor: Colors.white,
+                        onPressed: () {
+                          SocketException.closed();
+                        }),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  //for snack bar end
                 },
                   value:dropDownItemValue ,
                   items: [
