@@ -61,12 +61,12 @@ class _oneState extends State<one> {
                 onChanged: (value) {
                   setState(() {
                     dropDownItemValue = value as int;
-
                   });
                   print(dropDownItemValue);
                   //for snack bar start
                   final snackBar = SnackBar(
-                    content: Text('You have selected Menu ${dropDownItemValue + 1}'),
+                    content:
+                        Text('You have selected Menu ${dropDownItemValue + 1}'),
                     backgroundColor: Colors.teal,
                     action: SnackBarAction(
                         label: 'Close',
@@ -78,32 +78,70 @@ class _oneState extends State<one> {
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   //for snack bar end
                 },
-                  value:dropDownItemValue ,
+                value: dropDownItemValue,
                 underline: Container(),
-                  items: [
-                    DropdownMenuItem(
-                      child: Text('Menu 1'),
-                      value: 0,
-                    ),
-                    DropdownMenuItem(
-                      child: Text('Menu 2'),
-                      value: 1,
-                    ),
-                    DropdownMenuItem(
-                      child: Text('Menu 3'),
-                      value: 2,
-                    ),
-                    DropdownMenuItem(
-                      child: Text('Menu 4'),
-                      value: 3,
-                    ),
-                  ],
-
-
+                items: [
+                  DropdownMenuItem(
+                    child: Text('Menu 1'),
+                    value: 0,
                   ),
+                  DropdownMenuItem(
+                    child: Text('Menu 2'),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Menu 3'),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Menu 4'),
+                    value: 3,
+                  ),
+                ],
+              ),
               Divider(
                 height: 10,
               ),
+              ElevatedButton(
+                  onPressed: () {
+                    showBottomSheet(
+                      context: context,
+                      enableDrag: false,
+                      builder: (_) {
+                        //underScore means context
+                        return Container(
+                          height: 250,
+                          child: GestureDetector(
+                            onTap: (){Navigator.pop(context);},
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  leading: Icon(Icons.favorite),
+                                  title: Text('Favorite'),
+
+                                ),
+                                ListTile(
+                                  leading: Icon(Icons.save),
+                                  title: Text('Save'),
+
+                                ),
+                                ListTile(
+                                  leading: Icon(Icons.add),
+                                  title: Text('Add'),
+                                ),
+                                ListTile(
+                                  leading: Icon(Icons.settings),
+                                  title: Text('Settings'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+
+                      },
+                    );
+                  },
+                  child: Text('Bottom Sheet'))
             ],
           ),
         ),
